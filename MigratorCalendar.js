@@ -30,7 +30,7 @@ class MigratorCalendar {
         return formattedArray.filter(item => item !== undefined)
     }
 
-    async batchCalendar() {
+    async postBatchCalendarItems() {
         try {
             const response = await fetch(PORTAL_URL + OBJECTS_URI, {
                 method: 'POST',
@@ -47,17 +47,17 @@ class MigratorCalendar {
 
             const data = await response.json();
 
-            console.log('%cProcesso de migração finalizado com sucesso!', 'color:green')
-            console.log('Foram migrados ' + data.totalItemsCount + '/' + this.array.length);
+            console.log('\x1b[32m Processo de migração finalizado com sucesso!')
+            console.log('\x1b[32m Foram migrados ' + data.totalItemsCount + '/' + this.array.length);
 
         } catch (error) {
-            console.error('%cErro durante a migração:' + error.message, 'color:red');
+            console.error('\x1b[31m Erro durante a migração:' + error.message);
         }
     }
 
     start() {
-        console.log('%cIniciando migração', 'color:yellow');
-        this.batchCalendar();
+        console.log("\x1b[34m Iniciando migração");
+        this.postBatchCalendarItems();
     }
 }
 
