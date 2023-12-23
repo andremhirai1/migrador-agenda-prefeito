@@ -1,0 +1,280 @@
+{
+    "enableComments": true,
+    "objectRelationships": [],
+    "enableCategorization": true,
+    "accountEntryRestrictedObjectFieldName": "",
+    "objectActions": [],
+    "enableLocalization": false,
+    "accountEntryRestricted": false,
+    "externalReferenceCode": "2140d286-c60a-0e63-c402-2ea2eb1c33ba",
+    "objectFields": [
+        {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "String",
+            "label": {
+                "pt_BR": "Autor"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "66e10950-64f9-2e23-13c5-a118fa4c3374",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "creator",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "Date",
+            "label": {
+                "pt_BR": "Data de Criação"
+            },
+            "type": "Date",
+            "required": false,
+            "externalReferenceCode": "c0c51743-8bda-4a5b-b395-f10049ee41e3",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "createDate",
+            "state": false,
+            "businessType": "Date",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+                "pt_BR": "Código de Referência Externa"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "8b67d353-fe68-c8ae-21b1-c575e63b09ce",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "externalReferenceCode",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "Long",
+            "label": {
+                "pt_BR": "ID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "7e045ab5-2e99-d298-316a-17f36d85bff2",
+            "indexedAsKeyword": true,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "id",
+            "state": false,
+            "businessType": "LongInteger",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "Date",
+            "label": {
+                "pt_BR": "Data de Alteração"
+            },
+            "type": "Date",
+            "required": false,
+            "externalReferenceCode": "28558814-9441-20a8-5670-48e7621bd547",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "modifiedDate",
+            "state": false,
+            "businessType": "Date",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": false,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "true",
+            "DBType": "String",
+            "label": {
+                "pt_BR": "Estado"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "2d782e3a-fe00-5b89-39b4-cddaa326cfc0",
+            "indexedAsKeyword": false,
+            "system": true,
+            "indexedLanguageId": "",
+            "name": "status",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [
+                {
+                    "name": "timeStorage",
+                    "value": "convertToUTC"
+                }
+            ],
+            "readOnly": "false",
+            "DBType": "DateTime",
+            "label": {
+                "pt_BR": "Data de início"
+            },
+            "type": "DateTime",
+            "required": false,
+            "externalReferenceCode": "8cca5fb3-43fc-ce2f-cc77-d465303bdb69",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "startDate",
+            "state": false,
+            "businessType": "DateTime",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [
+                {
+                    "name": "timeStorage",
+                    "value": "convertToUTC"
+                }
+            ],
+            "readOnly": "false",
+            "DBType": "DateTime",
+            "label": {
+                "pt_BR": "Data de fim"
+            },
+            "type": "DateTime",
+            "required": false,
+            "externalReferenceCode": "d7856724-0ec1-2b01-cc7f-a711f48d6116",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "endDate",
+            "state": false,
+            "businessType": "DateTime",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "String",
+            "label": {
+                "pt_BR": "Local"
+            },
+            "type": "String",
+            "required": false,
+            "externalReferenceCode": "e7e3cc21-7b6d-117a-62a9-eb4e67e98a10",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "pt_BR",
+            "name": "location",
+            "state": false,
+            "businessType": "Text",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [
+                {
+                    "name": "showCounter",
+                    "value": false
+                }
+            ],
+            "readOnly": "false",
+            "DBType": "Clob",
+            "label": {
+                "pt_BR": "Título"
+            },
+            "type": "Clob",
+            "required": false,
+            "externalReferenceCode": "4bbc9404-8842-6b86-6c2b-be1d49298754",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "pt_BR",
+            "name": "title",
+            "state": false,
+            "businessType": "LongText",
+            "readOnlyConditionExpression": ""
+        },
+        {
+            "indexed": true,
+            "localized": false,
+            "objectFieldSettings": [],
+            "readOnly": "false",
+            "DBType": "Long",
+            "label": {
+                "pt_BR": "siteID"
+            },
+            "type": "Long",
+            "required": false,
+            "externalReferenceCode": "01fc9371-a68d-b7cb-1535-f6ad7ee5b900",
+            "indexedAsKeyword": false,
+            "system": false,
+            "indexedLanguageId": "",
+            "name": "siteID",
+            "state": false,
+            "businessType": "LongInteger",
+            "readOnlyConditionExpression": ""
+        }
+    ],
+    "restContextPath": "/o/c/agendas",
+    "scope": "company",
+    "portlet": true,
+    "modifiable": true,
+    "parameterRequired": false,
+    "enableObjectEntryHistory": false,
+    "titleObjectFieldName": "id",
+    "objectValidationRules": [],
+    "active": true,
+    "defaultLanguageId": "pt_BR",
+    "label": {
+        "pt_BR": "Agenda do prefeito"
+    },
+    "panelCategoryKey": "applications_menu.applications.content",
+    "pluralLabel": {
+        "pt_BR": "Agendas dos prefeitos"
+    },
+    "objectLayouts": [],
+    "system": false,
+    "objectViews": [],
+    "name": "Agenda",
+    "storageType": "default",
+    "actions": {
+        "permissions": {},
+        "get": {},
+        "update": {},
+        "delete": {}
+    },
+    "status": {
+        "label_i18n": "Aprovado",
+        "code": 0,
+        "label": "approved"
+    }
+}
