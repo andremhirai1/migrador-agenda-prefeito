@@ -5,7 +5,7 @@ const PORTAL_USER = 'test@liferay.com';
 const PORTAL_PASSWORD = 'test';
 const PORTAL_URL = 'https://webserver-lctcustomersummit-prd.lfr.cloud:443';
 const OBJECTS_URI = '/o/c/agendas/batch';
-const SITE_ID = 0;
+const SITE_ID = 20119;
 const HAS_PUBLISH_DATE_ATTRIBUTE = true;
 
 class MigratorCalendar {
@@ -16,18 +16,24 @@ class MigratorCalendar {
     formatDate(array) {
         let formattedArray = array.map(item => {
             if (item.startDate !== '') {
-                if(HAS_PUBLISH_DATE_ATTRIBUTE) delete item.publishDate;
+                if (HAS_PUBLISH_DATE_ATTRIBUTE) delete item.publishDate;
 
                 return {
                     ...item,
-                    startDate: new Date(item.startDate).toISOString(),
-                    endDate: new Date(item.endDate).toISOString(),
+                    startDate: this.formatHours(item.startDate),
+                    endDate: this.formatHours(item.endDate),
                     siteID: SITE_ID
                 }
             }
         });
 
         return formattedArray.filter(item => item !== undefined)
+    }
+
+    formatHours(stringDate) {
+        let newDate = new Date(stringDate);
+        newDate.setHours(newDate.getHours() - 3);
+        return newDate.toISOString();
     }
 
     async postBatchCalendarItems() {
