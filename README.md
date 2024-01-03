@@ -1,5 +1,3 @@
-**
-
 ## Passos para executar a migração da agenda
 
 1) Logar no portal e ir em painel de controle -> Objeto -> Objetos
