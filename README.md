@@ -41,6 +41,6 @@
 
 5) Executar na raiz do projeto os seguintes comandos:
 
-    npm install
+`npm install`
 
-    node MigratorCalendar.js
+`node MigratorCalendar.js`
