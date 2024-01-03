@@ -2,8 +2,18 @@
 
 ## Passos para executar a migração da agenda
 
+1) Logar no portal e ir em painel de controle -> Objeto -> Objetos
 
-1) Renomear os campos do arquivo csv para:
+2) Clicar nos 3 pontinhos no canto superior direito e selecionar Importar definição de objeto
+
+3) Abrirá um modal com os campos Nome e Arquivo JSON.
+
+- Nomear para Agenda do prefeito
+- Fazer upload do arquivo JSON que se encontra na pasta `object-definition`
+
+4) A definicão do objeto será criada e estará pronta para a migração
+
+5) Renomear os campos do arquivo csv para:
 
 - Data de inicio -> startDate
 
@@ -16,13 +26,13 @@
 - Título -> title
 
   
-2) Transformar o csv em json neste link: [https://kinoar.github.io/xlsx-to-json/](https://kinoar.github.io/xlsx-to-json/)
+6) Transformar o csv em json neste link: [https://kinoar.github.io/xlsx-to-json/](https://kinoar.github.io/xlsx-to-json/)
 
-3) Colocar o arquivo json gerado na pasta `data` com o nome de **data.json** (caso exista um arquivo data.json, sobreescrever o arquivo)
+7) Colocar o arquivo json gerado na pasta `data` com o nome de **data.json** (caso exista um arquivo data.json, sobreescrever o arquivo)
 
   
 
-4) Entrar no arquivo `MigratorCalendar.js` e trocar as variáveis abaixo para as correspondentes:
+8) Entrar no arquivo `MigratorCalendar.js` e trocar as variáveis abaixo para as correspondentes:
   
 
 > **PORTAL_USER** = usuário que acessa o portal (Ex: test@liferay.com);
@@ -39,8 +49,10 @@
 
   
 
-5) Executar na raiz do projeto os seguintes comandos:
+9) Executar na raiz do projeto os seguintes comandos:
 
 `npm install`
 
 `node MigratorCalendar.js`
+
+10) Pronto! Todos os dados foram migrados com sucesso!
