@@ -22,6 +22,7 @@ class MigratorCalendar {
                     ...item,
                     startDate: this.formatHours(item.startDate),
                     endDate: this.formatHours(item.endDate),
+                    description: '',
                     siteID: SITE_ID
                 }
             }
