@@ -6,7 +6,7 @@
 
 3) Abrirá um modal com os campos Nome e Arquivo JSON.
 
-- Nomear para Agenda do prefeito
+- Nomear para Agenda
 - Fazer upload do arquivo JSON que se encontra na pasta `object-definition`
 
 4) A definicão do objeto será criada e estará pronta para a migração
