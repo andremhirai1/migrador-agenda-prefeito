@@ -1,11 +1,11 @@
 import fetch from 'node-fetch';
 import data from './data/data.json' assert { type: 'json' };;
 
-const PORTAL_USER = 'test@liferay.com';
-const PORTAL_PASSWORD = 'test';
-const PORTAL_URL = 'https://webserver-lctcustomersummit-prd.lfr.cloud:443';
+const PORTAL_USER = 'test@prefeitura.sp.gov.br';
+const PORTAL_PASSWORD = 'liferay@prefeituraadmin';
+const PORTAL_URL = 'https://webserver-prefeiturasp-dev.lfr.cloud';
 const OBJECTS_URI = '/o/c/agendas/batch';
-const SITE_ID = 20119;
+const SITE_ID = 34276;
 const HAS_PUBLISH_DATE_ATTRIBUTE = true;
 
 class MigratorCalendar {
