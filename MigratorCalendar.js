@@ -55,7 +55,7 @@ class MigratorCalendar {
             const data = await response.json();
 
             console.log('\x1b[32m Processo de migração finalizado com sucesso!')
-            console.log('\x1b[32m Foram migrados ' + data.totalItemsCount + '/' + this.array.length);
+            console.log('\x1b[32m Foram migrados ' + this.array.length);
 
         } catch (error) {
             console.error('\x1b[31m Erro durante a migração:' + error.message);
