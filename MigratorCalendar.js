@@ -4,26 +4,28 @@ import data from './data/data.json' assert { type: 'json' };;
 const PORTAL_USER = 'test@prefeitura.sp.gov.br';
 const PORTAL_PASSWORD = 'liferay@prefeituraadmin';
 const PORTAL_URL = 'https://webserver-prefeiturasp-dev.lfr.cloud';
-const OBJECTS_URI = '/o/c/agendas/batch';
+const OBJECTS_URI = '/o/c/calendars/scopes/';
 const SITE_ID = 34276;
 const HAS_PUBLISH_DATE_ATTRIBUTE = true;
 
 class MigratorCalendar {
     constructor(array) {
-        this.array = this.formatDate(array);
+        this.array = this.formatObject(array);
+        this.batches = [];
     }
 
-    formatDate(array) {
+    formatObject(array) {
         let formattedArray = array.map(item => {
             if (item.startDate !== '') {
                 if (HAS_PUBLISH_DATE_ATTRIBUTE) delete item.publishDate;
 
                 return {
-                    ...item,
-                    startDate: this.formatHours(item.startDate),
-                    endDate: this.formatHours(item.endDate),
+                    title: item.title,
+                    startDate: this.formatHours(item.start),
+                    //endDate: this.formatHours(item.endDate),
                     description: '',
-                    siteID: SITE_ID
+                    location: item.descricao
+                    //siteID: SITE_ID
                 }
             }
         });
@@ -32,20 +34,23 @@ class MigratorCalendar {
     }
 
     formatHours(stringDate) {
-        let newDate = new Date(stringDate);
+        const index = stringDate.indexOf(":");
+        const dateFormatted = stringDate.substring(0, index) + "" + stringDate.substring(index + ":".length);
+        let newDate = new Date(dateFormatted);
         newDate.setHours(newDate.getHours() - 3);
         return newDate.toISOString();
     }
 
-    async postBatchCalendarItems() {
+    async postBatchCalendarItem(item) {
         try {
-            const response = await fetch(PORTAL_URL + OBJECTS_URI, {
+            console.log(item)
+            const response = await fetch(PORTAL_URL + OBJECTS_URI + SITE_ID, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': 'Basic ' + btoa(PORTAL_USER + ':' + PORTAL_PASSWORD)
                 },
-                body: JSON.stringify(this.array)
+                body: JSON.stringify(item)
             })
 
             if (!response.ok) {
@@ -55,16 +60,30 @@ class MigratorCalendar {
             const data = await response.json();
 
             console.log('\x1b[32m Processo de migração finalizado com sucesso!')
-            console.log('\x1b[32m Foram migrados ' + this.array.length);
+            //console.log('\x1b[32m Foram migrados ' + this.array.length);
 
         } catch (error) {
             console.error('\x1b[31m Erro durante a migração:' + error.message);
         }
     }
 
+    async processPosts(array) {
+        const batchSize = 100; // Número máximo de requisições simultâneas
+        
+        for (let i = 0; i < array.length; i += batchSize) {
+            this.batches.push(array.slice(i, i + batchSize));
+        }
+    
+        // Processa cada lote sequencialmente
+        for (const batch of this.batches) {
+            await Promise.all(batch.map(item => this.postBatchCalendarItem(item)));
+        }
+    }
+
     start() {
         console.log("\x1b[34m Iniciando migração");
-        this.postBatchCalendarItems();
+        this.processPosts(this.array);
+        
     }
 }
 
